@@ -1,0 +1,32 @@
+# Dependabot 版本更新配置
+# 安全更新（Dependabot security updates）需要在仓库 Settings 中单独开启。
+# 项目引入 package.json / pyproject.toml 等依赖文件后，取消下方对应注释即可。
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"
+
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   open-pull-requests-limit: 10
+  #   groups:
+  #     npm-minor-patch:
+  #       update-types: ["minor", "patch"]
+  #   commit-message:
+  #     prefix: "deps"
+
+  # - package-ecosystem: "pip"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   commit-message:
+  #     prefix: "deps"

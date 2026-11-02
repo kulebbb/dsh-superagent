@@ -1,0 +1,7 @@
+# 所有文件默认由仓库所有者审核。
+# Default owner for everything in the repository.
+*                   @kulebbb
+
+# 安全相关配置需要所有者审核 / Security-sensitive config
+/.github/           @kulebbb
+/SECURITY.md        @kulebbb
