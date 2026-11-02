@@ -1,0 +1,5 @@
+# dsh-superagent-desktop 的 bundle 层：插入主插件（无需配置）。
+# 阶段 0 只有骨架：服务端插件记录启动日志，客户端在侧边栏注册 Superagent 面板。
+- insert:
+    - id: dsh-superagent-desktop
+      name: dsh-superagent-desktop
