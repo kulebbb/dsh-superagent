@@ -32,4 +32,6 @@ venv/
 dist/
 build/
 out/
+lib/
+.artifacts/
 coverage/
