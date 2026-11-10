@@ -1,6 +1,8 @@
-# dsh-superagent-desktop
+# dsh-superagent
 
-个人版 superagent：参考 [dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) 的概念，为 DeepSeek Harness（DSH）桌面端做的插件。目标用户是个人开发者，在自己的电脑上使用。
+个人版 superagent：参考 [dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) 的概念，为 DeepSeek Harness（DSH）桌面端做的插件。目标用户是个人开发者，在自己的电脑上使用。这不是 DeepSeek 官方插件。
+
+npm 包名是 `dsh-superagent`。npm 上已有的 `dsh-superagent-desktop` 是其他人发布的另一个包，不要安装那个名字。
 
 当前进度：
 
@@ -12,21 +14,42 @@
 - DSH 0.2.1-rc.5（`engines.dsh` 为 `^0.2.1-rc.5`，依赖锁定在这个版本）
 - Node.js 22.19+ 或 24+，pnpm 11
 
-## 构建
+## 安装到 DSH
+
+仓库里已经提交构建产物 `lib/`。从 Git 安装不会执行 `build`，也不需要在 profile 的 `pnpm-workspace.yaml` 里为这个包打开 `allowBuilds`。
+
+桌面端请用 DSH Desktop 自带的 `dsh`。npm 上的 `@deepseek-ai/dsh` 不能管理名为 `desktop` 的 profile。
+
+```sh
+dsh plugin --profile desktop add github:kulebbb/dsh-superagent
+```
+
+建议钉住一次提交，避免之后的推送换掉已经装上的代码。把 `<commit>` 换成完整的 40 位 SHA：
+
+```sh
+dsh plugin --profile desktop add github:kulebbb/dsh-superagent#<commit>
+```
+
+装到命令行 Web profile 时，把 `desktop` 换成 `web`。安装后启用该 bundle；若提示 `restart-required`，完全退出并重启 DSH。侧边栏出现 Superagent 图标，点开显示「插件骨架已加载」。阶段 1 的领域核心还没有接到这个入口上。
+
+本包还没有发布到 npm。
+
+## 本地开发
 
 ```sh
 pnpm install
-pnpm check   # 类型检查 + 测试 + 构建，产物在 lib/
+pnpm check   # 类型检查 + 构建 + 测试，产物在 lib/
 ```
 
-## 安装到 DSH 桌面端
+改 `src/` 之后重新执行 `pnpm build`，并把新的 `lib/` 一起提交。Git 安装用的是仓库里的 `lib/`，不会在用户机器上编译。
 
-1. 在本目录执行 `pnpm install && pnpm build`。
-2. 打开 DSH 的 **Plugins（插件）** 页面，安装来源填本目录的绝对路径（插件管理器会读取它的 `package.json`）。
-3. 安装后启用该 bundle；若提示 `restart-required`，重启 DSH。
-4. 侧边栏出现 Superagent 图标，点开显示「插件骨架已加载」。
+本机目录安装（开发时）：
 
-改代码后需要重新 `pnpm build` 并重启 DSH。
+```sh
+dsh plugin --profile desktop add /absolute/path/to/dsh-superagent
+```
+
+开发安装之后若提示 `restart-required`，重启 DSH。
 
 ## 阶段计划
 
@@ -65,4 +88,4 @@ pnpm check   # 类型检查 + 测试 + 构建，产物在 lib/
 
 推断候选只有在 `auto` 模式且命中已启用的规则时才会开工；默认 `observe` 只记录「本来会接单」。
 
-部分代码取自原型（MIT），见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+部分代码取自原型（MIT），见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本仓库本身使用 MIT 许可证，版权人 Liang Zhao，见 [LICENSE](LICENSE)。
