@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "个人版 superagent：基于 dsh-superagent-prototype 概念的 DeepSeek Harness 桌面插件。",
   "license": "MIT",
-  "author": "Liang Zhao",
+  "author": "Liang",
   "homepage": "https://github.com/kulebbb/dsh-superagent#readme",
   "repository": {
     "type": "git",

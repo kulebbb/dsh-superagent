@@ -88,4 +88,4 @@ dsh plugin --profile desktop add /absolute/path/to/dsh-superagent
 
 推断候选只有在 `auto` 模式且命中已启用的规则时才会开工；默认 `observe` 只记录「本来会接单」。
 
-部分代码取自原型（MIT），见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本仓库本身使用 MIT 许可证，版权人 Liang Zhao，见 [LICENSE](LICENSE)。
+部分代码取自原型（MIT），见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本仓库本身使用 MIT 许可证，版权人 Liang，见 [LICENSE](LICENSE)。
