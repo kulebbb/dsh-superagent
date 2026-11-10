@@ -7,7 +7,7 @@ export default defineConfig([
   { entry: { client: 'src/client/index.tsx' }, outDir: 'lib', format: 'cjs', platform: 'browser', dts: false, clean: false,
     deps: { neverBundle: ['react', 'react/jsx-runtime', 'react-dom', /^@deepseek-ai\//] },
     outputOptions: { entryFileNames: 'client.js',
-      banner: 'window.__ModuleLoader__.load({ id: "dsh-superagent", factory: (require) => {',
+      banner: 'window.__ModuleLoader__.load({ id: "@kulebbb/dsh-superagent", factory: (require) => {',
       footer: 'return module.exports; } });',
       intro: 'var module = { exports: {} }; var exports = module.exports;' } },
 ])

@@ -1,5 +1,5 @@
 {
-  "name": "dsh-superagent",
+  "name": "@kulebbb/dsh-superagent",
   "version": "0.0.1",
   "description": "个人版 superagent：基于 dsh-superagent-prototype 概念的 DeepSeek Harness 桌面插件。",
   "license": "MIT",
@@ -8,6 +8,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kulebbb/dsh-superagent.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "type": "module",
   "main": "lib/index.js",

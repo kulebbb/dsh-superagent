@@ -2,7 +2,7 @@
 
 个人版 superagent：参考 [dsh-superagent-prototype](https://github.com/deepseek-ai/dsh-superagent-prototype) 的概念，为 DeepSeek Harness（DSH）桌面端做的插件。目标用户是个人开发者，在自己的电脑上使用。这不是 DeepSeek 官方插件。
 
-npm 包名是 `dsh-superagent`。npm 上已有的 `dsh-superagent-desktop` 是其他人发布的另一个包，不要安装那个名字。
+npm 包名是 `@kulebbb/dsh-superagent`。无作用域的 `dsh-superagent` 因与已有包 `dsh-super-agent` 过于相似，npm 拒绝发布。不要安装别人发布的 `dsh-superagent-desktop`。
 
 当前进度：
 
@@ -30,9 +30,13 @@ dsh plugin --profile desktop add github:kulebbb/dsh-superagent
 dsh plugin --profile desktop add github:kulebbb/dsh-superagent#<commit>
 ```
 
-装到命令行 Web profile 时，把 `desktop` 换成 `web`。安装后启用该 bundle；若提示 `restart-required`，完全退出并重启 DSH。侧边栏出现 Superagent 图标，点开显示「插件骨架已加载」。阶段 1 的领域核心还没有接到这个入口上。
+从 Git 安装用的是仓库地址 `github:kulebbb/dsh-superagent`，不是 npm 包名。装到命令行 Web profile 时，把 `desktop` 换成 `web`。安装后启用该 bundle；若提示 `restart-required`，完全退出并重启 DSH。侧边栏出现 Superagent 图标，点开显示「插件骨架已加载」。阶段 1 的领域核心还没有接到这个入口上。
 
-本包还没有发布到 npm。
+本包还没有发布到 npm。发布之后用包名安装：
+
+```sh
+dsh plugin --profile desktop add @kulebbb/dsh-superagent
+```
 
 ## 本地开发
 

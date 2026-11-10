@@ -18,20 +18,22 @@ describe('bundle manifest', () => {
       if (dep.startsWith('@deepseek-ai/dsh-')) expect(version, dep).toBe('0.2.1-rc.5')
     }
   })
-  it('inserts the plugin under the package name, and the version matches', () => {
-    expect(name).toBe(pkg.name)
-    expect(patch).toContain(`name: ${pkg.name}`)
+  it('resolves the bundle by the npm package name and keeps the internal plugin id', () => {
+    expect(name).toBe('dsh-superagent')
+    expect(patch).toContain(`name: '${pkg.name}'`)
+    expect(patch).toContain('id: dsh-superagent')
     expect(VERSION).toBe(pkg.version)
   })
   it('is a public MIT package and ships a prebuilt client registered under that name', () => {
     expect(pkg.private).toBeUndefined()
     expect(pkg.license).toBe('MIT')
+    expect(pkg.publishConfig.access).toBe('public')
     expect(pkg.repository.url).toBe('git+https://github.com/kulebbb/dsh-superagent.git')
     expect(pkg.scripts.prepare).toBeUndefined()
     const client = readFileSync(new URL('../lib/client.js', import.meta.url), 'utf8')
     expect(client).toContain(`id: "${pkg.name}"`)
     expect(client).toContain('__ModuleLoader__.load')
     const server = readFileSync(new URL('../lib/index.js', import.meta.url), 'utf8')
-    expect(server).toContain(pkg.name)
+    expect(server).toContain('const name = "dsh-superagent"')
   })
 })
