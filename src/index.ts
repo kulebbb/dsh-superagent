@@ -4,12 +4,12 @@
  */
 import type { Context } from '@deepseek-ai/cordis'
 
-export const name = 'dsh-superagent-desktop'
+export const name = 'dsh-superagent'
 export const inject: string[] = []
 
 /** 面板与日志共用的版本标识，测试会核对它与 package.json 一致。 */
 export const VERSION = '0.0.1'
 
 export function apply(ctx: Context): void {
-  ctx.logger.info('dsh-superagent-desktop %s 已加载；在侧边栏打开 Superagent 面板', VERSION)
+  ctx.logger.info('%s %s 已加载；在侧边栏打开 Superagent 面板', name, VERSION)
 }
